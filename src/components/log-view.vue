@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { logs } from "../data/logs.ts";
-import { selectedLabels, selectedLevel } from "../data/filter.ts";
+import { isWhiteList, selectedLabels, selectedLevel } from "../data/filter.ts";
 
 const displays = computed(() => {
     const all = logs.frozen();
@@ -10,10 +10,20 @@ const displays = computed(() => {
             return false;
         }
         for (const label of log.labels) {
+            // white is
             if (selectedLabels[label]) {
-                return true;
+                if (isWhiteList.value) {
+                    return true;
+                }
+            } else {
+                // black not
+                if (!isWhiteList.value) {
+                    return false;
+                }
             }
         }
+        // white none -> false; black all -> true
+        return !isWhiteList.value;
     });
 });
 const scrollContainer = ref<HTMLElement | null>(null);

@@ -1,6 +1,6 @@
 // 我懒得维护状态，别学。
 
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 export const selectedLevel = reactive({
     info: true,
@@ -9,3 +9,5 @@ export const selectedLevel = reactive({
 });
 
 export const selectedLabels: Record<string, boolean> = reactive({});
+
+export const isWhiteList = ref(true);

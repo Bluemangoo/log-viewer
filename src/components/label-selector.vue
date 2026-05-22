@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { selectedLabels } from "../data/filter.ts";
+import { isWhiteList, selectedLabels } from "../data/filter.ts";
 import { onMounted, ref, watch } from "vue";
 const isExpanded = ref(false);
 
@@ -96,6 +96,10 @@ const deselectAll = () => {
             <button @click="selectAll" class="hover:text-zinc-300 transition-colors">全选</button>
             <span class="text-gray-500">/</span>
             <button @click="deselectAll" class="hover:text-zinc-300 transition-colors">清空</button>
+            <span class="text-gray-500">/</span>
+            <button @click="isWhiteList=!isWhiteList" class="hover:text-zinc-300 transition-colors">
+                {{ isWhiteList ? "白名单" : "黑名单"}}
+            </button>
         </div>
     </div>
 </template>
