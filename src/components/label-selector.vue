@@ -75,8 +75,12 @@ const deselectAll = () => {
                     @click="selectedLabels[key] = !selectedLabels[key]"
                 >
                     <div
-                        class="hover:text-zinc-300 transition-colors"
-                        :class="selectedLabels[key] ? 'text-zinc-400' : 'text-zinc-600'"
+                        class="transition-colors"
+                        :class="
+                            selectedLabels[key]
+                                ? 'text-zinc-700 hover:text-peach-700 dark:text-zinc-400 dark:hover:text-zinc-500'
+                                : 'text-zinc-400 hover:text-zinc-500 dark:text-zinc-700 dark:hover:text-zinc-600'
+                        "
                     >
                         {{ key }}
                     </div>
@@ -85,20 +89,36 @@ const deselectAll = () => {
             <div>
                 <button
                     @click="toggleExpand"
-                    class="w-max text-gray-400 hover:text-zinc-300 transition-colors"
+                    class="w-max text-zinc-700 hover:text-peach-700 dark:text-zinc-400 dark:hover:text-zinc-300 transition-colors cursor-pointer"
                 >
                     {{ isExpanded ? "收起" : "展开" }}
                 </button>
             </div>
         </div>
 
-        <div v-if="isExpanded" class="mt-2.5 flex items-center gap-3 text-xs text-gray-400">
-            <button @click="selectAll" class="hover:text-zinc-300 transition-colors">全选</button>
+        <div
+            v-if="isExpanded"
+            class="mt-2.5 flex items-center gap-3 text-xs text-zinc-700 dark:text-zinc-400"
+        >
+            <button
+                @click="selectAll"
+                class="hover:text-peach-700 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+            >
+                全选
+            </button>
             <span class="text-gray-500">/</span>
-            <button @click="deselectAll" class="hover:text-zinc-300 transition-colors">清空</button>
+            <button
+                @click="deselectAll"
+                class="hover:text-peach-700 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+            >
+                清空
+            </button>
             <span class="text-gray-500">/</span>
-            <button @click="isWhiteList=!isWhiteList" class="hover:text-zinc-300 transition-colors">
-                {{ isWhiteList ? "白名单" : "黑名单"}}
+            <button
+                @click="isWhiteList = !isWhiteList"
+                class="hover:text-peach-700 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+            >
+                {{ isWhiteList ? "白名单" : "黑名单" }}
             </button>
         </div>
     </div>

@@ -11,11 +11,15 @@ import { selectedLevel } from "../data/filter.ts";
         >
             <div
                 class="size-3 border border-zinc-800 rounded-full transition-colors"
-                :class="selectedLevel.info ? 'bg-green-800' : 'bg-zinc-600'"
+                :class="selectedLevel.info ? 'bg-green-400 dark:bg-green-800' : 'text-zinc-400 dark:bg-zinc-700'"
             />
             <div
-                class="hover:text-zinc-300 transition-colors"
-                :class="selectedLevel.info ? 'text-zinc-400' : 'text-zinc-600'"
+                class="transition-colors"
+                :class="
+                    selectedLevel.info
+                        ? 'text-zinc-700 hover:text-peach-700 dark:text-zinc-400 dark:hover:text-zinc-500'
+                        : 'text-zinc-400 hover:text-zinc-500 dark:text-zinc-700 dark:hover:text-zinc-600'
+                "
             >
                 info
             </div>
@@ -28,11 +32,15 @@ import { selectedLevel } from "../data/filter.ts";
         >
             <div
                 class="size-3 border border-zinc-800 rounded-full transition-colors"
-                :class="selectedLevel.warn ? 'bg-yellow-800' : 'bg-zinc-600'"
+                :class="selectedLevel.warn ? 'bg-yellow-300 dark:bg-yellow-800' : 'text-zinc-400 dark:bg-zinc-700'"
             />
             <div
-                class="hover:text-zinc-300 transition-colors"
-                :class="selectedLevel.warn ? 'text-zinc-400' : 'text-zinc-600'"
+                class="transition-colors"
+                :class="
+                    selectedLevel.warn
+                        ? 'text-zinc-700 hover:text-peach-700 dark:text-zinc-400 dark:hover:text-zinc-500'
+                        : 'text-zinc-400 hover:text-zinc-500 dark:text-zinc-700 dark:hover:text-zinc-600'
+                "
             >
                 warn
             </div>
@@ -45,11 +53,19 @@ import { selectedLevel } from "../data/filter.ts";
         >
             <div
                 class="size-3 border border-zinc-800 rounded-full transition-colors"
-                :class="selectedLevel.error ? 'bg-red-900' : 'bg-zinc-600'"
+                :class="
+                    selectedLevel.error
+                        ? 'bg-red-400 dark:bg-red-900'
+                        : 'text-zinc-400 dark:bg-zinc-700'
+                "
             />
             <div
-                class="hover:text-zinc-300 transition-colors"
-                :class="selectedLevel.error ? 'text-zinc-400' : 'text-zinc-600'"
+                class="transition-colors"
+                :class="
+                    selectedLevel.error
+                        ? 'text-zinc-700 hover:text-peach-700 dark:text-zinc-400 dark:hover:text-zinc-500'
+                        : 'text-zinc-400 hover:text-zinc-500 dark:text-zinc-700 dark:hover:text-zinc-600'
+                "
             >
                 error
             </div>

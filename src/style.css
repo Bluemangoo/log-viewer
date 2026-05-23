@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+    --color-peach-50: #fef1f6;
+    --color-peach-100: #fee5f0;
+    --color-peach-200: #fecce1;
+    --color-peach-300: #ffaacc;
+    --color-peach-400: #fe68a1;
+    --color-peach-500: #f83c7e;
+    --color-peach-600: #e81a58;
+    --color-peach-700: #ca0c40;
+    --color-peach-800: #a70d35;
+    --color-peach-900: #8b1030;
+    --color-peach-950: #550217;
+}
+
 html {
-    background-image: linear-gradient(
-            to bottom,
-            #131834 0%,
-            #2c1f4a 45%,
-            #582c4d 80%,
-            #6d314f 100%
-    )
+    @apply bg-peach-50 dark:bg-slate-950
 }
 
 #app {
@@ -16,46 +24,100 @@ html {
 }
 
 .layer {
-    background-color: rgb(from var(--color-zinc-950) r g b / 30%);
+    @media (prefers-color-scheme: dark) {
+        background-color: rgb(from var(--color-slate-950) r g b / 40%);
+    }
+    background-color: rgb(from var(--color-peach-200) r g b / 40%);
 }
 
 .scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #52525b transparent;
+    scrollbar-width: thin;
+    scrollbar-color: #52525b transparent;
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
+    background: transparent;
+    border-radius: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background-color: #52525b;
-  border-radius: 10px;
+    background-color: #52525b;
+    border-radius: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #71717a;
+    background-color: #71717a;
 }
 
-.ansi-black-fg { color: #000000; }
-.ansi-red-fg { color: #bb0000; }
-.ansi-green-fg { color: var(--color-green-700); }
-.ansi-yellow-fg { color: #bbbb00; }
-.ansi-blue-fg { color: #0000bb; }
-.ansi-magenta-fg { color: #bb00bb; }
-.ansi-cyan-fg { color: #00bbbb; }
-.ansi-white-fg { color: #ffffff; }
-.ansi-bright-black-fg { color: #555555; }
-.ansi-bright-red-fg { color: #ff5555; }
-.ansi-bright-green-fg { color: #00ff00; }
-.ansi-bright-yellow-fg { color: #ffff55; }
-.ansi-bright-blue-fg { color: #5555ff; }
-.ansi-bright-magenta-fg { color: #ff55ff; }
-.ansi-bright-cyan-fg { color: #55ffff; }
-.ansi-bright-white-fg { color: #ffffff; }
+.link {
+    @apply text-blue-500 dark:text-blue-700
+}
+
+.ansi-black-fg {
+    color: #000000;
+}
+
+.ansi-red-fg {
+    color: #bb0000;
+}
+
+.ansi-green-fg {
+    @apply text-green-700
+}
+
+.ansi-yellow-fg {
+    @apply text-yellow-600 dark:text-yellow-700
+}
+
+.ansi-blue-fg {
+    color: #0000bb;
+}
+
+.ansi-magenta-fg {
+    color: #bb00bb;
+}
+
+.ansi-cyan-fg {
+    color: #00bbbb;
+}
+
+.ansi-white-fg {
+    color: #ffffff;
+}
+
+.ansi-bright-black-fg {
+    color: #555555;
+}
+
+.ansi-bright-red-fg {
+    color: #ff5555;
+}
+
+.ansi-bright-green-fg {
+    color: #00ff00;
+}
+
+.ansi-bright-yellow-fg {
+    color: #ffff55;
+}
+
+.ansi-bright-blue-fg {
+    color: #5555ff;
+}
+
+.ansi-bright-magenta-fg {
+    color: #ff55ff;
+}
+
+.ansi-bright-cyan-fg {
+    color: #55ffff;
+}
+
+.ansi-bright-white-fg {
+    color: #ffffff;
+}

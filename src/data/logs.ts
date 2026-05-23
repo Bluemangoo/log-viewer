@@ -13,7 +13,7 @@ const autoLink = (htmlString: string): string => {
     const urlRegex = /(https?:\/\/(?:(?!&quot;|&lt;|&gt;|&#39;)[\w\-.~:/?#@!$;&*+=%])+)/g;
 
     return htmlString.replace(urlRegex, (url) => {
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">${url}</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="link underline">${url}</a>`;
     });
 };
 
